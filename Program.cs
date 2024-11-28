@@ -1,9 +1,7 @@
-﻿
-using System.Text.Json;
-
-namespace star_battle_project
+﻿namespace star_battle_project
 {
     using System.Text.Json;
+    using System;
 
     // Star Battle in CMD
     class StarBattle
@@ -43,17 +41,24 @@ namespace star_battle_project
         static List<Cell> ImportBoard(string boardFile)
         {
             var board = new List<Cell>();
-
+            var groups = new List<List<int>>();
 
             string json = File.ReadAllText(boardFile);
-            var groups = JsonSerializer.Deserialize<Dictionary<string, List<List<int>>>>(json)["game_board"];
+            // throw error if no file found
+            
+            try { var groups = JsonSerializer.Deserialize<Dictionary<string, List<List<int>>>>(json)["game_board"]; }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Console.ReadLine();
+                Environment.Exit(0);
+            }
 
             // Determine GameSize from the size of the board
             GameSize = groups.Count;
 
             for (int rowNumber = 0; rowNumber < groups.Count; rowNumber++)
             {
-                var row = new List<Cell>();
                 for (int yNumber = 0; yNumber < groups[rowNumber].Count; yNumber++)
                 {
                     int cellGroup = groups[rowNumber][yNumber];
