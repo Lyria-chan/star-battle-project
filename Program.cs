@@ -1,7 +1,11 @@
 ﻿namespace star_battle_project
 {
     using System.Text.Json;
+<<<<<<< Updated upstream
     using System;
+=======
+    using System.Text.RegularExpressions;
+>>>>>>> Stashed changes
 
     // Star Battle in CMD
     class StarBattle
@@ -22,6 +26,7 @@
                 Y = y;
                 Group = group;
                 State = state;
+
             }
         }
 
@@ -33,6 +38,43 @@
                 Console.Write(cell.State);
                 if (cell.Y == GameSize - 1)
                 {
+
+                    if (cell.Group == 1)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                    }
+                    else if (cell.Group == 2)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                    }
+                    else if (cell.Group == 3)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                    }
+                    else if (cell.Group == 4)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                    }
+                    else if (cell.Group == 5)
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkGreen;
+                    }
+                    else if (cell.Group == 6)
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                    }
+                    else if (cell.Group == 7)
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                    }
+                    else if (cell.Group == 8)
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    }
+                    else if (cell.Group == 9)
+                    {
+                        Console.ForegroundColor = ConsoleColor.White;
+                    }
                     Console.WriteLine();
                 }
             }
