@@ -1,7 +1,7 @@
 ﻿namespace star_battle_project
 {
     using System.Text.Json;
-    using System;
+    using System.Text.RegularExpressions;
 
     // Star Battle in CMD
     class StarBattle
@@ -11,6 +11,7 @@
 
         public class Cell
         {
+            //Przypisanie koordynatów, grupy i stanu domyślnego kwadratu
             public int X { get; set; }
             public int Y { get; set; }
             public int Group { get; set; }
@@ -22,6 +23,7 @@
                 Y = y;
                 Group = group;
                 State = state;
+
             }
         }
 
@@ -33,6 +35,44 @@
                 Console.Write(cell.State);
                 if (cell.Y == GameSize - 1)
                 {
+                    //Przypisanie kazdej grupie kwadratow(bloku) innego koloru
+
+                    if (cell.Group == 1)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                    }
+                    else if (cell.Group == 2)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                    }
+                    else if (cell.Group == 3)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                    }
+                    else if (cell.Group == 4)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                    }
+                    else if (cell.Group == 5)
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkGreen;
+                    }
+                    else if (cell.Group == 6)
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                    }
+                    else if (cell.Group == 7)
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                    }
+                    else if (cell.Group == 8)
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    }
+                    else if (cell.Group == 9)
+                    {
+                        Console.ForegroundColor = ConsoleColor.White;
+                    }
                     Console.WriteLine();
                 }
             }
@@ -40,6 +80,7 @@
 
         static List<Cell> ImportBoard(string boardFile)
         {
+            //Import Tablicy z pliku JSON
             var board = new List<Cell>();
             var groups = new List<List<int>>();
 
@@ -71,6 +112,7 @@
 
         static void Main(string[] args)
         {
+            //Czesc glowna, narazie wypiuje plansze i jej rozmiar
             GameBoard = ImportBoard("game_board.json");
             Console.WriteLine($"Game Size: {GameSize}x{GameSize}");
             PrintBoard();
