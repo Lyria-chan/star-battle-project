@@ -1,11 +1,7 @@
 ﻿namespace star_battle_project
 {
     using System.Text.Json;
-<<<<<<< Updated upstream
-    using System;
-=======
     using System.Text.RegularExpressions;
->>>>>>> Stashed changes
 
     // Star Battle in CMD
     class StarBattle
