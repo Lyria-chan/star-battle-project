@@ -15,6 +15,7 @@
 
         public class Cell
         {
+            //Przypisanie koordynatów, grupy i stanu domyślnego kwadratu
             public int X { get; set; }
             public int Y { get; set; }
             public int Group { get; set; }
@@ -38,6 +39,7 @@
                 Console.Write(cell.State);
                 if (cell.Y == GameSize - 1)
                 {
+                    //Przypisanie kazdej grupie kwadratow(bloku) innego koloru
 
                     if (cell.Group == 1)
                     {
@@ -82,6 +84,7 @@
 
         static List<Cell> ImportBoard(string boardFile)
         {
+            //Import Tablicy z pliku JSON
             var board = new List<Cell>();
             var groups = new List<List<int>>();
 
@@ -113,6 +116,7 @@
 
         static void Main(string[] args)
         {
+            //Czesc glowna, narazie wypiuje plansze i jej rozmiar
             GameBoard = ImportBoard("game_board.json");
             Console.WriteLine($"Game Size: {GameSize}x{GameSize}");
             PrintBoard();
