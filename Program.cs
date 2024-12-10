@@ -110,6 +110,19 @@
             return board;
         }
         
+        static void CheckPlacement(int xpos, int ypos)
+        {
+            static bool Validate(int xcheck, int ycheck)
+            {
+                if (xcheck <= 0 || ycheck <= 0) return false;
+                else if (xcheck > GameSize || ycheck > GameSize) return false;
+                else return true;
+
+            }    
+        }
+        
+
+
 
 
         static void Main(string[] args)
