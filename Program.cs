@@ -87,7 +87,7 @@
             string json = File.ReadAllText(boardFile);
             // throw error if no file found
             
-            try { var groups = JsonSerializer.Deserialize<Dictionary<string, List<List<int>>>>(json)["game_board"]; }
+            try { groups = JsonSerializer.Deserialize<Dictionary<string, List<List<int>>>>(json)["game_board"]; }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
@@ -109,6 +109,8 @@
 
             return board;
         }
+        
+
 
         static void Main(string[] args)
         {
