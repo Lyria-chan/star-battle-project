@@ -109,8 +109,22 @@
 
             return board;
         }
-        
+        static void UpdateGameState()
+        {
+            //Tu będą podawane orzez uzytkownika koordynaty gwaizdek
+        }
 
+        static void Gameloop()
+        {
+            //Funkcja zapętlająca grę
+            while (true)
+            {
+                Console.Clear(); 
+                PrintBoard(); 
+
+                UpdateGameState();
+            }
+        }
 
         static void Main(string[] args)
         {
@@ -119,6 +133,7 @@
             Console.WriteLine($"Game Size: {GameSize}x{GameSize}");
             PrintBoard();
             Console.ReadLine();
+            Gameloop();
         }
 
     }
