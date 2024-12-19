@@ -111,8 +111,35 @@
         }
         static void UpdateGameState()
         {
-            //Tu będą podawane orzez uzytkownika koordynaty gwaizdek
+            Console.WriteLine("Podaj współrzędne (X i Y), aby zmienić pole na '*'. Podaj wartości między 0 a 9.");
+            int ruchPoziomy = -1, ruchPionowy = -1;
+
+    while (true)
+    {
+       
+            Console.Write("Podaj X (0-9): ");
+            ruchPoziomy = int.Parse(Console.ReadLine());
+            Console.Write("Podaj Y (0-9): ");
+            ruchPionowy = int.Parse(Console.ReadLine());
+
+
+            // Znalezienie odpowiedniej komórki i zmiana jej stanu
+            var selectedCell = GameBoard.FirstOrDefault(c => c.X == ruchPoziomy && c.Y == ruchPionowy);
+            if (selectedCell != null)
+            {
+                selectedCell.State = '*';
+                Console.WriteLine($"Pole ({ruchPoziomy}, {ruchPionowy}) zostało zaktualizowane.");
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Nie znaleziono pola. Spróbuj ponownie.");
+            }
         }
+       
+    }
+
+
 
         static void Gameloop()
         {
