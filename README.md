@@ -1,8 +1,8 @@
 #star-battle
 
 ### Zespół
-	-Bartosz Kroll
-	-Maja Knaflewska
+	-Bartosz K.
+	-Maja K.
 
 ### Trello
 https://trello.com/b/fDl7grTr/star-battle-project
